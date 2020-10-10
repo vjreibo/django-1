@@ -1,0 +1,16 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+<p>Entries for {{topic}}:</p>
+<ul>
+    {% for entry in entries %}
+    <li>
+        <p>{{entry.date|date:'M d, Y H:i'}}</p>
+        <p>{{entry.text|linebreaks}}</p>
+        <a href="{% url 'app1:edit_entry' entry.id %}">Edit Entry</a>
+    </li>
+    {% empty %}
+    <li>Empty!</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'app1:new_entry' topic.id %}">Add Entry</a>
+{% endblock content %}

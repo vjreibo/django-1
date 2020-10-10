@@ -1,0 +1,12 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+{% if form.errors %}
+<p>Please try again.</p>
+{% endif %}
+<form action="{% url 'users:login' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>Submit</button>
+    <input type="hidden" name='next' value="{% url 'app1:index' %}">
+</form>
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+<p>New Topic:</p>
+<form action="{% url 'app1:new_topic' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>Submit</button>
+</form>
+{% endblock content %}
