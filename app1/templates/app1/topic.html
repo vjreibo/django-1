@@ -1,16 +1,22 @@
 {% extends 'app1/base.html' %}
+{% load bootstrap4 %}
+{% block page_header %}
+<h2>Entries for {{topic}}:</h2>
+{% endblock page_header %}
 {% block content %}
-<p>Entries for {{topic}}:</p>
 <ul>
     {% for entry in entries %}
-    <li>
-        <p>{{entry.date|date:'M d, Y H:i'}}</p>
-        <p>{{entry.text|linebreaks}}</p>
-        <a href="{% url 'app1:edit_entry' entry.id %}">Edit Entry</a>
-    </li>
+    <div class="card mb-3">
+        <h4 class="card-header">{{entry.date|date:'M d, Y H:i'}}
+            <small><a href="{% url 'app1:edit_entry' entry.id %}">Edit Entry</a></small>
+        </h4>
+        <div class="card-body">
+            {{entry.text|linebreaks}}
+        </div>
+    </div>
     {% empty %}
-    <li>Empty!</li>
+    <p>Empty!</p>
     {% endfor %}
 </ul>
-<a href="{% url 'app1:new_entry' topic.id %}">Add Entry</a>
+<p><a href="{% url 'app1:new_entry' topic.id %}">Add Entry</a></p>
 {% endblock content %}

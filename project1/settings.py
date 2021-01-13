@@ -39,6 +39,10 @@ elif os.environ.get('DEBUG') == 'FALSE':
 INSTALLED_APPS = [
     'app1',
     'users',
+
+    # third-party
+    'bootstrap4',
+
     # default
     'django.contrib.admin',
     'django.contrib.auth',
