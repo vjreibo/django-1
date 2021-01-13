@@ -11,7 +11,7 @@
     <body>
         <nav class="navbar navbar-expand-md bg-light navbar-light mb-4 border">
             <a class="navbar-brand" href="{% url 'app1:index' %}">Brandon Blog</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -31,7 +31,7 @@
             </div>
         </nav>
         <main role="main" class="container">
-            <div class="pd-2 mg-2 border-bottom">
+            <div class="pd-2 mb-2 border-bottom">
                 {% block page_header %}{% endblock page_header %}
             </div>
             <div>
