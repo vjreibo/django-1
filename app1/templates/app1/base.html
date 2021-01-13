@@ -1,11 +1,59 @@
-<a href="{% url 'app1:index' %}">App 1</a>
-<a href="{% url 'app1:topics' %}">Topics</a>
-{% if user.is_authenticated %}
-Hello, {{user.username}}.
-<a href="{% url 'users:logout' %}">Logout</a>
-{% else %}
-<a href="{% url 'users:login' %}">Login</a>
-<a href="{% url 'users:register' %}">Register</a>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Brandon Blog</title>
+        <meta charset="UTF-8">
+        <meta name='viewpoint' content="width=device-width,initial-scale=1.0">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+
+            .nav{
+                background-color:blueviolet;
+                box-sizing: border-box;
+                padding:15px;
+            }
+
+            .nav ul{
+                list-style-type: none;
+            }
+
+            .nav li{
+                display: inline;
+                padding: 10px;
+            }
+
+            .nav a{
+                font-family:Arial, Helvetica, sans-serif;
+                color:white;
+                text-decoration: none;
+                font-size:15px;
+            }
+            
+            .nav ul:nth-child(3){
+                float:right;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class='nav'>
+                <ul>
+                    <li><a href="{% url 'app1:index' %}">Brandon Blog</a></li>
+                    <li><a href="{% url 'app1:topics' %}">Topics</a></li>
+                    <li>{% if user.is_authenticated %}
+                        Hello, {{user.username}}.
+                        <a href="{% url 'users:logout' %}">Logout</a>
+                        {% else %}
+                        <a href="{% url 'users:login' %}">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </body>
+</html>
 {% block content %}
 {% endblock content %}
